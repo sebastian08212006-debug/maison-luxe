@@ -1,37 +1,31 @@
 :root {
-    --tiffany-blue: #0077b6;
-    --gold: #c5a059;
-    --off-white: #fdfaf5;
-    --dark-text: #1a1a1a;
+    --tiffany-blue: #81d8d0; /* True Tiffany Blue */
+    --gold: #b38b59;
+    --off-white: #ffffff;
+    --text-main: #000000;
 }
 
 body {
     background-color: var(--off-white);
-    color: var(--dark-text);
+    color: var(--text-main);
     font-family: 'Montserrat', sans-serif;
     margin: 0;
-    overflow-x: hidden;
 }
 
-/* Infinite Marquee Fix */
+/* Infinite Marquee - No Gap Fix */
 .marquee-container {
     background: var(--tiffany-blue);
-    color: white;
-    padding: 12px 0;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
+    color: var(--text-main);
+    padding: 8px 0;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
     overflow: hidden;
-    display: flex;
 }
 
 .marquee-content {
     display: flex;
-    white-space: nowrap;
-    animation: marquee 30s linear infinite;
-}
-
-.marquee-content span {
-    padding-right: 50px;
+    width: max-content;
+    animation: marquee 40s linear infinite;
 }
 
 @keyframes marquee {
@@ -39,114 +33,156 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* Header & Nav */
-header {
-    text-align: center;
-    padding: 60px 0;
-    background: white;
+/* Utility Nav - Tiffany Icons */
+.utility-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: #fff;
 }
 
-h1 {
+.nav-left ion-icon, .nav-right ion-icon {
+    font-size: 1.4rem;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.brand-identity {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-logo {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.brand-name {
     font-family: 'Playfair Display', serif;
-    font-size: 3.5rem;
-    letter-spacing: 12px;
-    margin: 0;
+    font-size: 2.2rem; /* Matches image_1c39f9.jpg scale */
+    letter-spacing: 4px;
+    text-transform: uppercase;
     font-weight: 400;
 }
 
-nav { margin-top: 20px; }
-nav a {
+/* Main Category Nav */
+.main-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+.category-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.category-links a {
     text-decoration: none;
-    color: var(--dark-text);
-    margin: 0 25px;
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    transition: 0.3s;
+    color: #000;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    font-weight: 400;
 }
-nav a:hover { color: var(--gold); }
 
-/* Hero Section - Fixes Cropping from image_3c8c71.jpg */
+/* Side-by-Side Hero (image_1c39f9.jpg style) */
 .hero-section {
-    height: 80vh;
-    width: 100%;
-    overflow: hidden;
-}
-
-.slide {
-    width: 100%;
-    height: 100%;
-    background-size: cover; /* Ensures image fills space without stretching */
-    background-position: center 20%; /* Focuses on the top-middle of the bag */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-overlay {
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-text {
-    text-align: center;
-    color: white;
-    padding: 40px;
-}
-
-.hero-text h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    margin: 0;
-    text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-}
-
-/* Collections Grid */
-.img-container {
-    height: 500px;
-    overflow: hidden;
+    height: 600px;
     background: #fff;
+}
+
+.hero-container {
+    display: flex;
+    height: 100%;
+}
+
+.hero-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+}
+
+.hero-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+}
+
+.hero-info p {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.cta-link {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: #000;
+    text-decoration: underline;
+    text-underline-offset: 8px;
+}
+
+.hero-image {
+    flex: 1.5;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Product Grid (image_1c3275.jpg style) */
+.collections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 80px 40px;
+}
+
+.collection-item {
+    text-align: center;
+}
+
+.img-container {
+    background-color: #f7f7f7; /* Light grey backdrop common in luxury sites */
+    height: 450px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Shows the whole bag without cropping the edges */
-    padding: 20px;
-    transition: transform 0.5s;
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
 }
 
-.collection-item:hover img { transform: scale(1.05); }
-
-/* Footer Styling */
-footer {
-    background: #fff;
-    padding: 80px 10% 40px;
-    margin-top: 100px;
-    border-top: 1px solid #eee;
+.item-details h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 5px;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    text-align: left;
+.subtitle {
+    font-size: 0.75rem;
+    color: #777;
+    margin-bottom: 10px;
 }
 
-.footer-section h4 { letter-spacing: 2px; font-size: 0.9rem; margin-bottom: 20px; }
-.footer-section p, .footer-section li { font-size: 0.85rem; color: #666; line-height: 1.6; }
-.footer-section ul { list-style: none; padding: 0; }
-.footer-section a { text-decoration: none; color: #666; }
+.price {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
 
 .footer-bottom {
-    margin-top: 60px;
+    padding: 40px;
+    border-top: 1px solid #eee;
     text-align: center;
-    border-top: 1px solid #f0f0f0;
-    padding-top: 30px;
-    font-size: 0.75rem;
-    color: #aaa;
+    font-size: 0.7rem;
+    color: #999;
     letter-spacing: 1px;
 }
