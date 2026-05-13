@@ -2,26 +2,13 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
-# Artist/Designer Gallery Data (From Earl Gariando's Collection)
-maison_collections = [
-    {
-        "id": "acroteria",
-        "name": "The Acroteria Bag",
-        "tagline": "Repoussè Metalwork",
-        "description": "Exquisite repoussè brass dipped in sterling silver and 24k gold. A masterpiece of architectural wearable art.",
-        "image": "acroteria.jpg"
-    },
-    {
-        "id": "sunflower",
-        "name": "The Sunflower Bag",
-        "tagline": "Nature in Brass",
-        "description": "Repousse brass applique in spliced sunflower motif dipped in 24k gold set on handwoven abaca and ticog fibers with mother of pearl clasp.",
-        "image": "sunflower.jpg"
-    }
-]
-
 @app.route('/')
 def index():
+    # These names MUST match your filenames in the static folder exactly (lowercase)
+    maison_collections = [
+        {'name': 'The Acroteria Bag', 'image': 'acroteria.jpg'},
+        {'name': 'The Sunflower Bag', 'image': 'sunflower.jpg'}
+    ]
     return render_template('index.html', collections=maison_collections)
 
 if __name__ == '__main__':
