@@ -3,35 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maison Luxe</title>
-    <style>
-        body { font-family: 'serif'; background-color: #fdfaf5; color: #333; text-align: center; margin: 0; padding: 20px; }
-        header { margin-bottom: 50px; border-bottom: 1px solid #eee; padding-bottom: 20px; }
-        h1 { letter-spacing: 5px; font-weight: 300; }
-        .collections-grid { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
-        .collection-item { width: 400px; background: white; padding: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .collection-item img { width: 100%; height: auto; display: block; margin-bottom: 15px; }
-        h3 { font-size: 1.2rem; letter-spacing: 1px; color: #444; }
-    </style>
+    <title>Maison Luxe | Earl Gariando</title>
+    <!-- Google Fonts for that Tiffany & Co. minimalist look -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
+    <!-- Top Infinite Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content">
+            EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp; THE REPOUSSÈ COLLECTION &nbsp;&nbsp; • &nbsp;&nbsp; EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp;
+        </div>
+    </div>
+
     <header>
-        <p style="font-size: 0.8rem; letter-spacing: 2px; color: #999;">HIGH JEWELRY & WEARABLE ART</p>
         <h1>MAISON LUXE</h1>
         <nav>
-            <span style="margin: 0 15px; font-size: 0.9rem; letter-spacing: 1px;">COLLECTIONS</span>
-            <span style="margin: 0 15px; font-size: 0.9rem; letter-spacing: 1px;">THE ART OF REPOUSSÈ</span>
-            <span style="margin: 0 15px; font-size: 0.9rem; letter-spacing: 1px;">CONTACT</span>
+            <a href="#">COLLECTIONS</a>
+            <a href="#">THE CRAFT</a>
+            <a href="#">CONTACT</a>
         </nav>
     </header>
 
-    <div class="collections-grid">
-        {% for item in collections %}
-        <div class="collection-item">
-            <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}">
-            <h3>{{ item.name }}</h3>
+    <!-- Hero Slideshow -->
+    <section class="hero-section">
+        <div class="slideshow">
+            <div class="slide" style="background-image: url('{{ url_for('static', filename='acroteria.jpg') }}');">
+                <div class="hero-text">
+                    <h2>The Acroteria Series</h2>
+                    <p>Hand-hammered Gold Repoussé</p>
+                </div>
+            </div>
+            <!-- Duplicate slides will cycle in CSS -->
         </div>
-        {% endfor %}
-    </div>
+    </section>
+
+    <main>
+        <div class="section-title">
+            <hr> <span>SHOP THE PIECES</span> <hr>
+        </div>
+
+        <div class="collections-grid">
+            {% for item in collections %}
+            <div class="collection-item">
+                <div class="img-container">
+                    <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}">
+                </div>
+                <h3>{{ item.name }}</h3>
+                <p class="price">Price Upon Request</p>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 MAISON LUXE by Earl Gariando</p>
+    </footer>
+
 </body>
 </html>
