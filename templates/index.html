@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maison Luxe | Earl Gariando</title>
-    <!-- Google Fonts for that Tiffany & Co. minimalist look -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <!-- Top Infinite Marquee -->
     <div class="marquee-container">
         <div class="marquee-content">
-            EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp; THE REPOUSSÈ COLLECTION &nbsp;&nbsp; • &nbsp;&nbsp; EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp;
+            <span>EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp; THE REPOUSSÈ COLLECTION &nbsp;&nbsp; • &nbsp;&nbsp;</span>
+            <!-- The second span makes it infinite with no gaps -->
+            <span>EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp; THE REPOUSSÈ COLLECTION &nbsp;&nbsp; • &nbsp;&nbsp;</span>
         </div>
     </div>
 
@@ -26,16 +26,14 @@
         </nav>
     </header>
 
-    <!-- Hero Slideshow -->
     <section class="hero-section">
-        <div class="slideshow">
-            <div class="slide" style="background-image: url('{{ url_for('static', filename='acroteria.jpg') }}');">
+        <div class="slide" style="background-image: url('{{ url_for('static', filename='acroteria.jpg') }}');">
+            <div class="hero-overlay">
                 <div class="hero-text">
                     <h2>The Acroteria Series</h2>
                     <p>Hand-hammered Gold Repoussé</p>
                 </div>
             </div>
-            <!-- Duplicate slides will cycle in CSS -->
         </div>
     </section>
 
@@ -58,7 +56,28 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 MAISON LUXE by Earl Gariando</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>MAISON LUXE</h4>
+                <p>Exquisite wearable art inspired by classical techniques and modern luxury.</p>
+            </div>
+            <div class="footer-section">
+                <h4>QUICK LINKS</h4>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Care Instructions</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>CONNECT</h4>
+                <p>Follow us for latest collections.</p>
+                <p>Instagram | Pinterest</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MAISON LUXE by Earl Gariando. Portfolio Sample Website.</p>
+        </div>
     </footer>
 
 </body>
