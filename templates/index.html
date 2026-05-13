@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maison Luxe | Earl Gariando</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;400&display=swap" rel="stylesheet">
+    <title>earlgariando | Maison Luxe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <!-- Ionicons for the Tiffany-style utility icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -12,71 +14,67 @@
     <div class="marquee-container">
         <div class="marquee-content">
             <span>EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp; THE REPOUSSÈ COLLECTION &nbsp;&nbsp; • &nbsp;&nbsp;</span>
-            <!-- The second span makes it infinite with no gaps -->
             <span>EARL GARIANDO &nbsp;&nbsp; • &nbsp;&nbsp; HIGH JEWELRY &nbsp;&nbsp; • &nbsp;&nbsp; WEARABLE ART &nbsp;&nbsp; • &nbsp;&nbsp; THE REPOUSSÈ COLLECTION &nbsp;&nbsp; • &nbsp;&nbsp;</span>
         </div>
     </div>
 
-    <header>
-        <h1>MAISON LUXE</h1>
-        <nav>
-            <a href="#">COLLECTIONS</a>
+    <nav class="utility-nav">
+        <div class="nav-left">
+            <ion-icon name="search-outline"></ion-icon>
+            <ion-icon name="location-outline"></ion-icon>
+        </div>
+        <div class="brand-identity">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="main-logo">
+            <span class="brand-name">earlgariando</span>
+        </div>
+        <div class="nav-right">
+            <ion-icon name="person-outline"></ion-icon>
+            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name="bag-handle-outline"></ion-icon>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <div class="category-links">
+            <a href="#">HIGH JEWELRY</a>
+            <a href="#">JEWELRY</a>
             <a href="#">THE CRAFT</a>
-            <a href="#">CONTACT</a>
-        </nav>
+            <a href="#">ACCESSORIES</a>
+            <a href="#">WORLD OF EARL</a>
+        </div>
     </header>
 
     <section class="hero-section">
-        <div class="slide" style="background-image: url('{{ url_for('static', filename='acroteria.jpg') }}');">
-            <div class="hero-overlay">
-                <div class="hero-text">
-                    <h2>The Acroteria Series</h2>
-                    <p>Hand-hammered Gold Repoussé</p>
-                </div>
+        <div class="hero-container">
+            <div class="hero-info">
+                <h2>The Acroteria Series</h2>
+                <p>Inspired by classical architecture, the Acroteria collection is a symbol of artistic strength and timeless elegance.</p>
+                <a href="#" class="cta-link">DISCOVER THE COLLECTION</a>
             </div>
+            <div class="hero-image" style="background-image: url('{{ url_for('static', filename='acroteria.jpg') }}');"></div>
         </div>
     </section>
 
-    <main>
-        <div class="section-title">
-            <hr> <span>SHOP THE PIECES</span> <hr>
-        </div>
-
+    <main class="product-showcase">
         <div class="collections-grid">
             {% for item in collections %}
             <div class="collection-item">
                 <div class="img-container">
                     <img src="{{ url_for('static', filename=item.image) }}" alt="{{ item.name }}">
                 </div>
-                <h3>{{ item.name }}</h3>
-                <p class="price">Price Upon Request</p>
+                <div class="item-details">
+                    <h3>{{ item.name }}</h3>
+                    <p class="subtitle">Hand-hammered Gold Repoussé</p>
+                    <p class="price">Price Upon Request</p>
+                </div>
             </div>
             {% endfor %}
         </div>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>MAISON LUXE</h4>
-                <p>Exquisite wearable art inspired by classical techniques and modern luxury.</p>
-            </div>
-            <div class="footer-section">
-                <h4>QUICK LINKS</h4>
-                <ul>
-                    <li><a href="#">Our Story</a></li>
-                    <li><a href="#">Care Instructions</a></li>
-                    <li><a href="#">Shipping & Returns</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>CONNECT</h4>
-                <p>Follow us for latest collections.</p>
-                <p>Instagram | Pinterest</p>
-            </div>
-        </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 MAISON LUXE by Earl Gariando. Portfolio Sample Website.</p>
+            <p>&copy; 2026 EARL GARIANDO. Portfolio Sample Website.</p>
         </div>
     </footer>
 
