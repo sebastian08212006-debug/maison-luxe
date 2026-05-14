@@ -3,6 +3,7 @@
     --gold-accent: #b38b59;
     --white: #ffffff;
     --black: #000000;
+    --bg-grey: #f8f8f8;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* MARQUEE GAP FIX */
+/* MARQUEE GAP FIX - DOUBLED CONTENT ANIMATION */
 .marquee-container {
     background: var(--tiffany-blue);
     padding: 10px 0;
@@ -24,13 +25,14 @@ body {
 .marquee-content {
     display: flex;
     white-space: nowrap;
-    animation: marquee 35s linear infinite;
+    animation: marquee 40s linear infinite;
 }
 
 .marquee-content span {
     font-size: 0.65rem;
     letter-spacing: 2px;
     padding-right: 50px;
+    text-transform: uppercase;
 }
 
 @keyframes marquee {
@@ -38,7 +40,7 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* UTILITY NAV & LOGO */
+/* UTILITY NAV & LOGO (Inspired by image_1c39f9.jpg) */
 .utility-nav {
     display: flex;
     justify-content: space-between;
@@ -64,6 +66,7 @@ body {
     font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 6px;
+    font-weight: 400;
 }
 
 .nav-left ion-icon, .nav-right ion-icon {
@@ -88,9 +91,10 @@ body {
     letter-spacing: 1.5px;
 }
 
-/* SIDE-BY-SIDE HERO */
+/* SIDE-BY-SIDE HERO (Inspired by image_1c39f9.jpg) */
 .hero-section {
     height: 650px;
+    width: 100%;
 }
 
 .hero-container {
@@ -141,7 +145,7 @@ body {
     background-position: center;
 }
 
-/* TIFFANY PRODUCT GRID */
+/* TIFFANY PRODUCT GRID (Inspired by image_1c3275.jpg) */
 .collections-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -150,18 +154,28 @@ body {
 }
 
 .img-container {
-    background-color: #f8f8f8;
+    background-color: var(--bg-grey);
     height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 25px;
+    overflow: hidden;
 }
 
 .img-container img {
     width: 85%;
     height: 85%;
-    object-fit: contain;
+    object-fit: contain; /* Prevents cropping from image_3c8c71.jpg */
+    transition: transform 0.5s ease;
+}
+
+.collection-item:hover img {
+    transform: scale(1.05);
+}
+
+.item-details {
+    text-align: center;
 }
 
 .item-details h3 {
@@ -188,9 +202,81 @@ body {
     color: var(--white);
 }
 
+/* WORLD OF EARL - STORY PAGE STYLES */
+.story-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px;
+}
+
+.story-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.story-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 400;
+}
+
+.story-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
+}
+
+.story-text h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin: 40px 0 15px 0;
+    border-bottom: 1px solid var(--tiffany-blue);
+    display: inline-block;
+}
+
+.story-text p {
+    font-size: 0.95rem;
+    line-height: 2;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.lead-in {
+    font-size: 1.2rem !important;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--black) !important;
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #eee;
+    padding: 15px;
+    background: white;
+}
+
+/* FOOTER */
 .footer-bottom {
-    padding: 50px;
+    padding: 60px;
     text-align: center;
     font-size: 0.75rem;
     color: #999;
+    letter-spacing: 1px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .collections-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero-container { flex-direction: column; }
+    .hero-section { height: auto; }
+    .hero-info { padding: 60px 40px; }
+    .hero-image { height: 400px; }
+}
+
+@media (max-width: 768px) {
+    .collections-grid { grid-template-columns: 1fr; }
+    .story-content { grid-template-columns: 1fr; }
+    .brand-name { font-size: 1.5rem; }
 }
