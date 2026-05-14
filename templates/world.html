@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World of Earl | earlgariando</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Standard Header (Keep it consistent) -->
+    <nav class="utility-nav">
+        <div class="brand-identity">
+            <a href="/" style="text-decoration: none; color: black; display: flex; align-items: center; gap: 15px;">
+                <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Logo" class="main-logo">
+                <span class="brand-name">earlgariando</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="story-container">
+        <section class="story-header">
+            <span class="eyebrow">THE CRAFT & THE JOURNEY</span>
+            <h1>World of Earl</h1>
+        </section>
+
+        <section class="story-content">
+            <div class="story-text">
+                <p class="lead-in">A licensed Interior Designer turned visionary fashion artist, Earl Gariando’s journey is defined by a relentless pursuit of excellence in Filipino craftsmanship.</p>
+                
+                <h3>A Foundation in Design</h3>
+                <p>Graduating from Eastern Visayas State University in 2004, Earl built his early career in visual merchandising before translating his eye for display into couture fashion.</p>
+
+                <h3>Acclaimed Recognition</h3>
+                <p>His work has graced the finals of the most prestigious competitions in the Philippines, including the <strong>Philippine Fashion Designers Competition (2007)</strong> and <strong>Mega Magazine’s Young Designers' Competition (2009)</strong>.</p>
+
+                <h3>Global Excellence</h3>
+                <p>In 2013, Earl was recognized on the global stage as a winner in the <strong>Look of the Style Awards</strong> and a recipient of the <strong>Sheffield Hallam University Scholarship in the UK</strong>.</p>
+                
+                <h3>Present Day</h3>
+                <p>Today, Earl Gariando serves as a <strong>ManilaWear Designer</strong> at ManilaFAME, maintaining a steady collection of couture accessories under his label at FIRMA, Greenbelt 3.</p>
+            </div>
+            
+            <div class="story-image">
+                <!-- Use one of the photos from the exhibition for this -->
+                <img src="{{ url_for('static', filename='exhibition.jpg') }}" alt="Earl Gariando Exhibition">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-bottom">
+        <p>&copy; 2026 EARL GARIANDO. Portfolio Concept.</p>
+    </footer>
+
+</body>
+</html>
