@@ -1,31 +1,36 @@
 :root {
-    --tiffany-blue: #81d8d0; /* True Tiffany Blue */
-    --gold: #b38b59;
-    --off-white: #ffffff;
-    --text-main: #000000;
+    --tiffany-blue: #81d8d0;
+    --gold-accent: #b38b59;
+    --white: #ffffff;
+    --black: #000000;
 }
 
 body {
-    background-color: var(--off-white);
-    color: var(--text-main);
+    background-color: var(--white);
+    color: var(--black);
     font-family: 'Montserrat', sans-serif;
     margin: 0;
+    overflow-x: hidden;
 }
 
-/* Infinite Marquee - No Gap Fix */
+/* MARQUEE GAP FIX */
 .marquee-container {
     background: var(--tiffany-blue);
-    color: var(--text-main);
-    padding: 8px 0;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
+    padding: 10px 0;
     overflow: hidden;
+    display: flex;
 }
 
 .marquee-content {
     display: flex;
-    width: max-content;
-    animation: marquee 40s linear infinite;
+    white-space: nowrap;
+    animation: marquee 35s linear infinite;
+}
+
+.marquee-content span {
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    padding-right: 50px;
 }
 
 @keyframes marquee {
@@ -33,19 +38,12 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* Utility Nav - Tiffany Icons */
+/* UTILITY NAV & LOGO */
 .utility-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background: #fff;
-}
-
-.nav-left ion-icon, .nav-right ion-icon {
-    font-size: 1.4rem;
-    margin: 0 10px;
-    cursor: pointer;
+    padding: 30px 50px;
 }
 
 .brand-identity {
@@ -55,42 +53,44 @@ body {
 }
 
 .main-logo {
-    height: 40px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .brand-name {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem; /* Matches image_1c39f9.jpg scale */
-    letter-spacing: 4px;
+    font-size: 2.2rem;
     text-transform: uppercase;
-    font-weight: 400;
+    letter-spacing: 6px;
 }
 
-/* Main Category Nav */
-.main-header {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 20px;
+.nav-left ion-icon, .nav-right ion-icon {
+    font-size: 1.4rem;
+    margin: 0 12px;
+    cursor: pointer;
 }
 
+/* CATEGORY NAV */
 .category-links {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .category-links a {
     text-decoration: none;
-    color: #000;
-    font-size: 0.65rem;
+    color: var(--black);
+    font-size: 0.7rem;
     letter-spacing: 1.5px;
-    font-weight: 400;
 }
 
-/* Side-by-Side Hero (image_1c39f9.jpg style) */
+/* SIDE-BY-SIDE HERO */
 .hero-section {
-    height: 600px;
-    background: #fff;
+    height: 650px;
 }
 
 .hero-container {
@@ -103,86 +103,94 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 10%;
+    padding: 0 8%;
+}
+
+.eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--gold-accent);
+    margin-bottom: 15px;
 }
 
 .hero-info h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.8rem;
-    margin-bottom: 20px;
+    font-size: 3.2rem;
+    margin: 0 0 20px 0;
+    font-weight: 400;
 }
 
 .hero-info p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.8;
-    color: #444;
-    margin-bottom: 30px;
+    color: #555;
+    margin-bottom: 35px;
 }
 
 .cta-link {
-    font-size: 0.75rem;
-    letter-spacing: 2px;
-    color: #000;
+    color: var(--black);
     text-decoration: underline;
     text-underline-offset: 8px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
 }
 
 .hero-image {
-    flex: 1.5;
+    flex: 1.2;
     background-size: cover;
     background-position: center;
 }
 
-/* Product Grid (image_1c3275.jpg style) */
+/* TIFFANY PRODUCT GRID */
 .collections-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding: 80px 40px;
-}
-
-.collection-item {
-    text-align: center;
+    padding: 100px 50px;
 }
 
 .img-container {
-    background-color: #f7f7f7; /* Light grey backdrop common in luxury sites */
-    height: 450px;
-    margin-bottom: 20px;
+    background-color: #f8f8f8;
+    height: 480px;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 .img-container img {
-    width: 80%;
-    height: 80%;
+    width: 85%;
+    height: 85%;
     object-fit: contain;
 }
 
 .item-details h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 400;
-    margin-bottom: 5px;
+    margin: 0 0 5px 0;
 }
 
-.subtitle {
-    font-size: 0.75rem;
-    color: #777;
-    margin-bottom: 10px;
+.subtitle { font-size: 0.8rem; color: #888; margin-bottom: 8px; }
+.price { font-size: 0.9rem; margin-bottom: 15px; }
+
+.inquiry-btn {
+    background: none;
+    border: 1px solid var(--black);
+    padding: 12px 25px;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.price {
-    font-size: 0.8rem;
-    font-weight: 300;
+.inquiry-btn:hover {
+    background: var(--black);
+    color: var(--white);
 }
 
 .footer-bottom {
-    padding: 40px;
-    border-top: 1px solid #eee;
+    padding: 50px;
     text-align: center;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     color: #999;
-    letter-spacing: 1px;
 }
