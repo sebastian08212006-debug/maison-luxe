@@ -11,5 +11,9 @@ def index():
     ]
     return render_template('index.html', collections=maison_collections)
 
+@app.route('/world-of-earl')
+def world_of_earl():
+    return render_template('world.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
