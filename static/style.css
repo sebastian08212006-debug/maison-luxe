@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* MARQUEE GAP FIX - DOUBLED CONTENT ANIMATION */
+/* --- INFINITE MARQUEE (NO GAPS) --- */
 .marquee-container {
     background: var(--tiffany-blue);
     padding: 10px 0;
@@ -40,7 +40,7 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* UTILITY NAV & LOGO (Inspired by image_1c39f9.jpg) */
+/* --- NAV & LOGO --- */
 .utility-nav {
     display: flex;
     justify-content: space-between;
@@ -75,7 +75,6 @@ body {
     cursor: pointer;
 }
 
-/* CATEGORY NAV */
 .category-links {
     display: flex;
     justify-content: center;
@@ -91,7 +90,7 @@ body {
     letter-spacing: 1.5px;
 }
 
-/* SIDE-BY-SIDE HERO (Inspired by image_1c39f9.jpg) */
+/* --- SIDE-BY-SIDE HERO SECTION --- */
 .hero-section {
     height: 650px;
     width: 100%;
@@ -145,7 +144,7 @@ body {
     background-position: center;
 }
 
-/* TIFFANY PRODUCT GRID (Inspired by image_1c3275.jpg) */
+/* --- TIFFANY PRODUCT GRID --- */
 .collections-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -166,7 +165,7 @@ body {
 .img-container img {
     width: 85%;
     height: 85%;
-    object-fit: contain; /* Prevents cropping from image_3c8c71.jpg */
+    object-fit: contain;
     transition: transform 0.5s ease;
 }
 
@@ -184,7 +183,6 @@ body {
     margin: 0 0 5px 0;
 }
 
-.subtitle { font-size: 0.8rem; color: #888; margin-bottom: 8px; }
 .price { font-size: 0.9rem; margin-bottom: 15px; }
 
 .inquiry-btn {
@@ -202,7 +200,7 @@ body {
     color: var(--white);
 }
 
-/* WORLD OF EARL - STORY PAGE STYLES */
+/* --- WORLD OF EARL (STORY PAGE) --- */
 .story-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -256,7 +254,7 @@ body {
     background: white;
 }
 
-/* FOOTER */
+/* --- FOOTER --- */
 .footer-bottom {
     padding: 60px;
     text-align: center;
@@ -266,17 +264,15 @@ body {
     border-top: 1px solid #f0f0f0;
 }
 
-/* RESPONSIVE */
+/* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
     .collections-grid { grid-template-columns: repeat(2, 1fr); }
-    .hero-container { flex-direction: column; }
-    .hero-section { height: auto; }
-    .hero-info { padding: 60px 40px; }
-    .hero-image { height: 400px; }
 }
 
 @media (max-width: 768px) {
     .collections-grid { grid-template-columns: 1fr; }
     .story-content { grid-template-columns: 1fr; }
     .brand-name { font-size: 1.5rem; }
+    .hero-container { flex-direction: column; }
+    .hero-section { height: auto; }
 }
